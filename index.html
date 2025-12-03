@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Біз үйленеміз! - Той шақыруы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('public/assets/hero-wedding-romantic.jpg') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: Georgia, serif;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #e11d48;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #fff1f2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-family: Georgia, serif;
+            color: #881337;
+            margin-bottom: 15px;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 4px;
+            background: #fb7185;
+            margin: 0 auto 40px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-text {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .about-images img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .about-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Event Details */
+        .event-details {
+            background: linear-gradient(to bottom, #fff1f2, white);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #fecdd3;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .detail-icon {
+            font-size: 48px;
+            color: #e11d48;
+            margin-bottom: 20px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.8rem;
+            font-family: Georgia, serif;
+            color: #881337;
+            margin-bottom: 15px;
+        }
+
+        .detail-card p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin: 5px 0;
+        }
+
+        .detail-card p:first-of-type {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: white;
+        }
+
+        .rsvp-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #fecdd3;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4b5563;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #fecdd3;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #fb7185;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            accent-color: #e11d48;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #e11d48;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #be123c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #fff1f2;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #fecdd3;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            color: #e11d48;
+            margin-bottom: 20px;
+        }
+
+        .success-message h3 {
+            font-size: 2rem;
+            color: #881337;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #881337;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        footer h2 {
+            font-size: 1.8rem;
+            font-family: Georgia, serif;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #fecdd3;
+            margin: 5px 0;
+        }
+
+        .admin-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #9f1239;
+        }
+
+        .admin-btn {
+            background: #9f1239;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid #be123c;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-btn:hover {
+            background: #be123c;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+        }
+
+        .modal-content h3 {
+            color: #881337;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 2000;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        .toast.success {
+            border-left: 4px solid #10b981;
+        }
+
+        .toast.error {
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">❤️</div>
+            <h1>Біз үйленеміз!</h1>
+            <p>Сіздерді осы ерекше күнімізді бірге бөлісуге шақырамыз</p>
+            <a href="#rsvp" class="btn">Қатысуды растау</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Біздің махаббат әңгімеміз</h2>
+            <div class="section-divider"></div>
+            <p class="about-text">
+                Біз кездестік, ғашық болдық және осы жолды бірге жүруге шештік.
+                Енді біз қуанышымызды ең жақын адамдармен бөліскіміз келеді.
+            </p>
+            <div class="about-images">
+                <img src="public/assets/couple-sunset.jpg" alt="Күн батысындағы жұп">
+                <img src="public/assets/venue-decoration.jpg" alt="Орын безендіруі">
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="event-details">
+        <div class="container">
+            <h2 class="section-title">Той мәліметтері</h2>
+            <div class="section-divider"></div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <h3>Күні</h3>
+                    <p>15 маусым 2025</p>
+                    <p>Сенбі</p>
+                    <p>17:00</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">📍</div>
+                    <h3>Орны</h3>
+                    <p>Загородный клуб</p>
+                    <p>"Романтика"</p>
+                    <p>Гүлдер көшесі, 25</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">👔</div>
+                    <h3>Дресс-код</h3>
+                    <p>Коктейльдік</p>
+                    <p>Пастель түстер</p>
+                    <p>қош келдіңіз</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp">
+        <div class="container">
+            <h2 class="section-title">Қатысуды растаңыз</h2>
+            <div class="section-divider"></div>
+            <p style="text-align: center; font-size: 1.2rem; color: #4b5563; margin-bottom: 40px;">
+                Сіздің келуіңізге дайындалу үшін төмендегі форманы толтырыңыз
+            </p>
+
+            <div class="rsvp-container">
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message">
+                    <div class="success-icon">❤️</div>
+                    <h3>Рахмет!</h3>
+                    <p>Сіздің тіркелуіңіз қабылданды. Сізбен кездесуді асыға күтеміз! 💕</p>
+                </div>
+
+                <!-- RSVP Form -->
+                <div id="rsvpForm" class="form-card">
+                    <h3 style="font-size: 1.8rem; font-family: Georgia, serif; color: #881337; margin-bottom: 10px;">Тіркелу формасы</h3>
+                    <p style="color: #6b7280; margin-bottom: 30px;">Барлық өрістерді толтыру міндетті</p>
+
+                    <form id="guestForm">
+                        <div class="form-group">
+                            <label for="fullName">Толық аты-жөні *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Иван Иванов" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Сіз кімсіз? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="friends" name="guestType" value="friends" checked>
+                                    <label for="friends" style="font-weight: normal; margin: 0;">Достар</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="relatives" name="guestType" value="relatives">
+                                    <label for="relatives" style="font-weight: normal; margin: 0;">Туыстар</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numberOfGuests">👥 Қонақтар саны *</label>
+                            <input type="number" id="numberOfGuests" name="numberOfGuests" min="1" max="10" value="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">💬 Тілектер немесе пікірлер (міндетті емес)</label>
+                            <textarea id="message" name="message" placeholder="Тілектеріңізді немесе ерекше сұрауларыңызды жазыңыз..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Қатысуды растау</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-icon">❤️</div>
+            <h2>Сіздерді тойымызда көруді асыға күтеміз!</h2>
+            <p>15 маусым 2025 • 17:00</p>
+
+            <!-- Admin Section -->
+            <div class="admin-section">
+                <button class="admin-btn" onclick="openAdminModal()">
+                    🔒 Әкімші: Қонақтар тізімін жүктеу
+                </button>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <p style="font-size: 0.9rem;">
+                    Барлық сұрақтар бойынша телефон: +7 (999) 123-45-67
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <h3>Құпия сөзді енгізіңіз</h3>
+            <p>Қонақтар тізімін жүктеу үшін құпия сөзді енгізіңіз</p>
+            <div class="form-group">
+                <label for="adminPassword">Құпия сөз</label>
+                <input type="password" id="adminPassword" placeholder="Құпия сөзді енгізіңіз">
+            </div>
+            <button class="submit-btn" onclick="exportToExcel()">
+                📥 Excel жүктеу
+            </button>
+            <button class="btn" onclick="closeAdminModal()" style="margin-top: 10px; background: #6b7280;">
+                Жабу
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        const ADMIN_PASSWORD = '77780105';
+
+        // Form submission
+        document.getElementById('guestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                guestType: document.querySelector('input[name="guestType"]:checked').value,
+                numberOfGuests: parseInt(document.getElementById('numberOfGuests').value),
+                message: document.getElementById('message').value,
+                id: Date.now().toString(),
+                createdAt: new Date().toISOString()
+            };
+
+            // Save to localStorage
+            const guests = JSON.parse(localStorage.getItem('weddingGuests') || '[]');
+            guests.push(formData);
+            localStorage.setItem('weddingGuests', JSON.stringify(guests));
+
+            // Show success message
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            showToast('Рахмет! Сізді тойымызда көргенімізге қуаныштымыз! 💕', 'success');
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                document.getElementById('guestForm').reset();
+                document.getElementById('successMessage').classList.remove('show');
+                document.getElementById('rsvpForm').style.display = 'block';
+            }, 3000);
+        });
+
+        // Admin modal functions
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.add('show');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.remove('show');
+            document.getElementById('adminPassword').value = '';
+        }
+
+        // Export to Excel
+        function exportToExcel() {
+            const password = document.getElementById('adminPassword').value;
+
+            if (password !== ADMIN_PASSWORD) {
+                showToast('Қате құпия сөз!', 'error');
+                document.getElementById('adminPassword').value = '';
+                return;
+            }
+
+            const guests = JSON.parse(localStorage.getItem('weddingGuests') || '[]');
+
+            if (guests.length === 0) {
+                showToast('Экспорттау үшін қонақтар жоқ', 'error');
+                closeAdminModal();
+                return;
+            }
+
+            // Prepare data for Excel
+            const excelData = guests.map(guest => ({
+                'Толық аты': guest.fullName,
+                'Категория': guest.guestType === 'friends' ? 'Достар' : 'Туыстар',
+                'Қонақтар саны': guest.numberOfGuests,
+                'Хабарлама': guest.message || '-',
+                'Тіркелген күні': new Date(guest.createdAt).toLocaleString('kk-KZ')
+            }));
+
+            // Create workbook
+            const worksheet = XLSX.utils.json_to_sheet(excelData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Қонақтар');
+
+            // Download file
+            const today = new Date().toISOString().split('T')[0];
+            XLSX.writeFile(workbook, `toy_qonaqtary_${today}.xlsx`);
+
+            showToast('Excel файлы сәтті жүктелді!', 'success');
+            closeAdminModal();
+        }
+
+        // Toast notification
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Close modal on outside click
+        document.getElementById('adminModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAdminModal();
+            }
+        });
+
+        // Enter key for password
+        document.getElementById('adminPassword').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                exportToExcel();
+            }
+        });
+    </script>
+</body>
+</html>
