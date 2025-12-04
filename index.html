@@ -512,7 +512,7 @@
                 Енді біз қуанышымызды ең жақын адамдармен бөліскіміз келеді.
             </p>
             <div class="about-images">
-                <img src="public/assets/222.png" alt="Күн батысындағы жұп">
+                <img src="public/assets/2222.png" alt="Күн батысындағы жұп">
                 <img src="public/assets/3.jpg" alt="Орын безендіруі">
             </div>
         </div>
@@ -582,8 +582,8 @@
                                     <label for="relatives" style="font-weight: normal; margin: 0;">Туыстар</label>
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" id="relatives" name="guestType" value="relatives">
-                                    <label for="relatives" style="font-weight: normal; margin: 0;">Жумыстастар</label>
+                                     <input type="radio" id="coworkers" name="guestType" value="coworkers">
+                                     <label for="coworkers" style="font-weight: normal; margin: 0;">Жұмыстастар</label>
                                 </div>
                             </div>
                         </div>
@@ -712,13 +712,32 @@
             }
 
             // Prepare data for Excel
-            const excelData = guests.map(guest => ({
-                'Толық аты': guest.fullName,
-                'Категория': guest.guestType === 'friends' ? 'Достар' : 'Туыстар',
-                'Қонақтар саны': guest.numberOfGuests,
-                'Хабарлама': guest.message || '-',
-                'Тіркелген күні': new Date(guest.createdAt).toLocaleString('kk-KZ')
-            }));
+            const excelData = guests.map(guest => {
+    let typeText = '';
+
+    switch (guest.guestType) {
+        case 'friends':
+            typeText = 'Достар';
+            break;
+        case 'relatives':
+            typeText = 'Туыстар';
+            break;
+        case 'coworkers':
+            typeText = 'Жұмыстастар';
+            break;
+        default:
+            typeText = '-';
+    }
+
+    return {
+        'Толық аты': guest.fullName,
+        'Категория': typeText,
+        'Қонақтар саны': guest.numberOfGuests,
+        'Хабарлама': guest.message || '-',
+        'Тіркелген күні': new Date(guest.createdAt).toLocaleString('kk-KZ')
+    };
+});
+
 
             // Create workbook
             const worksheet = XLSX.utils.json_to_sheet(excelData);
@@ -772,6 +791,7 @@
 </body>
 
 </html>
+
 
 
 
