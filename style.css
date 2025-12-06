@@ -1,5 +1,5 @@
 /* Обертка для центрирования карточки */
-.rsvp .card-wrapper {
+.card-wrapper {
     display: flex;
     justify-content: center; /* по горизонтали */
     align-items: center;     /* по вертикали */
