@@ -118,7 +118,7 @@ button {
             background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
         }
 
-        /* HERO */
+       /* HERO */
 .hero {
     height: 100vh;
     position: relative;
@@ -130,14 +130,15 @@ button {
     overflow: hidden;
 }
 
-/* ФОТО — адаптивное */
+/* ФОТО — всегда на весь экран */
 .hero-image {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ПК — эффект background-cover */
+    object-fit: cover;        /* ✔ заполняет экран без полос */
+    object-position: 30% 50%; /* ✔ регулирует фокус (подберём под твоё фото) */
     transform: translate(-50%, -50%);
     z-index: -1;
 }
@@ -179,38 +180,28 @@ button {
 
 /* 📱 АДАПТИВ ДЛЯ МОБИЛЬНЫХ */
 @media (max-width: 768px) {
+
     .hero-image {
-        object-fit: contain; /* фото полностью */
-        background-color: black; /* если края пустые */
+        object-fit: cover;      /* ❗ остаётся cover */
+        object-position: 35% 50%; /* немного сдвигаем фокус для телефонов */
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p  { font-size: 1.2rem; }
+    .hero-icon { font-size: 48px; }
 
-    .hero p {
-        font-size: 1.2rem;
-    }
-
-    .hero-icon {
-        font-size: 48px;
+    .hero-content {
+        padding: 10px;
     }
 }
 
 /* 🖥 Для больших мониторов */
 @media (min-width: 1400px) {
-    .hero h1 {
-        font-size: 5rem;
-    }
-
-    .hero p {
-        font-size: 2rem;
-    }
-
-    .hero-icon {
-        font-size: 80px;
-    }
+    .hero h1 { font-size: 5rem; }
+    .hero p { font-size: 2rem; }
+    .hero-icon { font-size: 80px; }
 }
+
 
 
         .btn {
