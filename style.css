@@ -119,7 +119,7 @@ button {
 
 .hero {
   height: 100vh;
-  background: url(public/assets/1.png) center / cover no-repeat;
+  background: url(public/assets/1.jpg) center / cover no-repeat;
 }
 
 /* На телефонах — полностью видим */
