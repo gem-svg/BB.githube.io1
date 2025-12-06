@@ -1,29 +1,17 @@
-const musicBtn = document.getElementById('musicBtn');
-        const bgMusic = document.getElementById('bgMusic');
+window.addEventListener('click', startMusicOnce);
+window.addEventListener('scroll', startMusicOnce);
 
-        // Функция для включения/выключения музыки
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play().catch(() => {}); // ловим ошибки браузера
-                musicBtn.textContent = "⏸";
-            } else {
-                bgMusic.pause();
-                musicBtn.textContent = "▶";
-            }
-        }
+function startMusicOnce() {
+    bgMusic.play().then(() => {
+        playIcon.style.display = "none";
+        pauseIcon.style.display = "block";
+    }).catch(() => {});
+    
+    // После первого успешного клика/скролла убираем обработчики
+    window.removeEventListener('click', startMusicOnce);
+    window.removeEventListener('scroll', startMusicOnce);
+}
 
-        // Клик по кнопке
-        musicBtn.addEventListener('click', toggleMusic);
-
-        // Попытка авто-включения музыки при загрузке
-        window.addEventListener('load', () => {
-            bgMusic.play().then(() => {
-                musicBtn.textContent = "⏸";
-            }).catch(() => {
-                // Если браузер блокирует авто-запуск, оставляем ▶
-                musicBtn.textContent = "▶";
-            });
-        });
 
 const phone = "77770617513"; // ← өз нөміріңізді қойыңыз (плюссыз)
 
