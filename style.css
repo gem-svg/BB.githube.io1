@@ -117,20 +117,16 @@ button {
             background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
         }
 
-.hero {
-  height: 100vh;
-  background: url(public/assets/1.jpg) center / cover no-repeat;
-}
-
 /* На телефонах — полностью видим */
 @media (max-width: 768px) {
   .hero {
     background-size: contain;
     background-color: #000;
+    height: 100vh;
   }
 }
 
-        /* Hero Section 
+        /* Hero Section */
         .hero {
             height: 100vh;
             background: url('public/assets/1.jpg') center/cover no-repeat;
@@ -140,7 +136,7 @@ button {
             justify-content: center;
             text-align: center;
             color: white;
-        }*/
+        }
 
         .hero::before {
             content: '';
