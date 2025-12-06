@@ -1,3 +1,14 @@
+const phone = "77770617513"; // ← өз нөміріңізді қойыңыз (плюссыз)
+
+document.getElementById("yesBtn").onclick = () => {
+    const url = `https://wa.me/${phone}?text=Иә,%20келем`;
+    window.location.href = url;
+};
+
+document.getElementById("noBtn").onclick = () => {
+    const url = `https://wa.me/${phone}?text=Келе%20алмаймын`;
+    window.location.href = url;
+};
 
  const ADMIN_PASSWORD = '77780105';
 
