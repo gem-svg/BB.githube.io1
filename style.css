@@ -118,53 +118,100 @@ button {
             background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: url('public/assets/1.jpg') center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
+        /* HERO */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
+/* ФОТО — адаптивное */
+.hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ПК — эффект background-cover */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
+/* затемнение */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
 
-        .hero-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    animation: fadeInUp 1s ease-out;
+}
 
-        .hero h1 {
-            font-size: 4rem;
-            font-family: Georgia, serif;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+.hero-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
 
-        .hero p {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+.hero h1 {
+    font-size: 4rem;
+    font-family: Georgia, serif;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* 📱 АДАПТИВ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    .hero-image {
+        object-fit: contain; /* фото полностью */
+        background-color: black; /* если края пустые */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .hero-icon {
+        font-size: 48px;
+    }
+}
+
+/* 🖥 Для больших мониторов */
+@media (min-width: 1400px) {
+    .hero h1 {
+        font-size: 5rem;
+    }
+
+    .hero p {
+        font-size: 2rem;
+    }
+
+    .hero-icon {
+        font-size: 80px;
+    }
+}
+
 
         .btn {
             display: inline-block;
