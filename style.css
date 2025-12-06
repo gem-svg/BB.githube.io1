@@ -1,3 +1,12 @@
+/* Обертка для центрирования карточки */
+.rsvp .card-wrapper {
+    display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+    min-height: 60vh;        /* или 100vh, если хочешь полностью экран */
+}
+
+
 /* Карточка */
 .card {
     background: #ffffff;
