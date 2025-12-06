@@ -1,66 +1,69 @@
 .photo-slider {
     text-align: center;
-    margin: 50px auto;
-    max-width: 700px;
-    font-family: 'Arial', sans-serif;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #fff8f7, #f7f2ef);
+    border-radius: 20px;
+    max-width: 950px;
+    margin: 40px auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
 .photo-slider h2 {
-    color: #9b1c31;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    color: #b89475;
+    margin-bottom: 25px;
 }
 
-.slider-container {
+.carousel-wrapper {
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 16px;
 }
 
-.slides {
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in-out;
 }
 
 .slide {
     min-width: 100%;
-    display: none;
-    border-radius: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    object-fit: cover;
 }
 
-.slide.active {
-    display: block;
-    animation: fade 0.8s;
-}
-
-@keyframes fade {
-    from {opacity: 0.4;}
-    to {opacity: 1;}
-}
-
-/* Кнопки навигации */
+/* свадебные кнопки */
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255,255,255,0.8);
-    border: none;
-    font-size: 2rem;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #e4d2c4;
+    color: #b89475;
+    font-size: 34px;
     padding: 10px 15px;
-    cursor: pointer;
     border-radius: 50%;
-    user-select: none;
-    transition: background 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(255,255,255,1);
+    background: #ffffff;
+    color: #d4a87b;
+    transform: translateY(-50%) scale(1.12);
 }
 
 .prev { left: 15px; }
 .next { right: 15px; }
-
 
 .countdown {
     text-align: center;
