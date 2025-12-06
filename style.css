@@ -118,25 +118,6 @@ button {
             background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
         }
 
-/* Планшеты */
-@media (max-width: 1024px) {
-  .hero {
-    height: 85vh;
-  }
-}
-
-/* Большие телефоны */
-@media (max-width: 768px) {
-  .hero {
-    height: 75vh;
-  }
-}
-
-/* Маленькие телефоны */
-@media (max-width: 480px) {
-  .hero {
-    height: 65vh;
-  }
         /* Hero Section */
         .hero {
             height: 100vh;
