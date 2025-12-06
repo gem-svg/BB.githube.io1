@@ -1,15 +1,10 @@
-body {
-    background: #fff7f9;
-    font-family: "Georgia", serif;
-}
-
-/* Контейнер */
+b/* Контейнер */
 .wedding-carousel {
     position: relative;
-    width: 350px;
-    height: 260px;
-    margin: 100px auto;
-    perspective: 1200px;
+    width: 260px;
+    height: 190px;
+    margin: 60px auto;
+    perspective: 900px;
 }
 
 /* 3D-карусель */
@@ -23,13 +18,13 @@ body {
 
 .item {
     position: absolute;
-    width: 300px;
-    height: 220px;
-    left: 25px;
-    top: 20px;
-    border-radius: 20px;
+    width: 220px;
+    height: 160px;
+    left: 20px;
+    top: 15px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     background: #fff;
 }
 
@@ -39,34 +34,34 @@ body {
     object-fit: cover;
 }
 
-/* Расположение по окружности */
-.item:nth-child(1) { transform: rotateY(0deg) translateZ(350px); }
-.item:nth-child(2) { transform: rotateY(72deg) translateZ(350px); }
-.item:nth-child(3) { transform: rotateY(144deg) translateZ(350px); }
-.item:nth-child(4) { transform: rotateY(216deg) translateZ(350px); }
-.item:nth-child(5) { transform: rotateY(288deg) translateZ(350px); }
+/* Расположение по кругу — уменьшенное */
+.item:nth-child(1) { transform: rotateY(0deg) translateZ(260px); }
+.item:nth-child(2) { transform: rotateY(72deg) translateZ(260px); }
+.item:nth-child(3) { transform: rotateY(144deg) translateZ(260px); }
+.item:nth-child(4) { transform: rotateY(216deg) translateZ(260px); }
+.item:nth-child(5) { transform: rotateY(288deg) translateZ(260px); }
 
-/* Кнопки */
+/* Кнопки компактные */
 .btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.7);
     border: none;
-    font-size: 30px;
-    padding: 10px 15px;
+    font-size: 22px;
+    padding: 6px 10px;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: 0.3s;
 }
+
+.prev { left: -45px; }
+.next { right: -45px; }
 
 .btn:hover {
     background: white;
 }
-
-.prev { left: -60px; }
-.next { right: -60px; }
 
 .countdown {
     text-align: center;
