@@ -1,3 +1,41 @@
+.countdown {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff7f9;
+    border-radius: 24px;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 100px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.time-box span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e11d48;
+}
+
+.time-box small {
+    display: block;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+
 /* Круглая кнопка музыки */
     #musicBtn {
         position: fixed;
