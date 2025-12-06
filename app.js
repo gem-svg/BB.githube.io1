@@ -1,33 +1,26 @@
-const track = document.querySelector(".track");
-const slides = document.querySelectorAll(".slide");
+let angle = 0;
+const carousel = document.getElementById("carousel");
 
-let index = 0;
-const total = slides.length;
-
-const moveCarousel = () => {
-    index = (index + 1) % total;
-    track.style.transform = `translateX(-${index * 100}%)`;
+const rotateCarousel = () => {
+    carousel.style.transform = `rotateY(${angle}deg)`;
 };
 
-document.querySelector(".next").addEventListener("click", () => {
-    moveCarousel();
-    restartAuto();
-});
+// Кнопки управления
+document.getElementById("nextBtn").onclick = () => {
+    angle -= 72;
+    rotateCarousel();
+};
 
-document.querySelector(".prev").addEventListener("click", () => {
-    index = (index - 1 + total) % total;
-    track.style.transform = `translateX(-${index * 100}%)`;
-    restartAuto();
-});
+document.getElementById("prevBtn").onclick = () => {
+    angle += 72;
+    rotateCarousel();
+};
 
-let auto = setInterval(moveCarousel, 3000);
-
-function restartAuto() {
-    clearInterval(auto);
-    auto = setInterval(moveCarousel, 3000);
-}
-
-
+// Автопрокрутка
+setInterval(() => {
+    angle -= 72;
+    rotateCarousel();
+}, 4000);
 
 
 const targetDate = new Date("May 5, 2026 00:00:00").getTime();
