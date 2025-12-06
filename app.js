@@ -1,4 +1,4 @@
->
+
 const musicBtn = document.getElementById('musicBtn');
 const bgMusic = document.getElementById('bgMusic');
 const playIcon = document.getElementById('playIcon');
