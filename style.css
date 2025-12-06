@@ -1,3 +1,4 @@
+/* Круглая кнопка музыки */
     #musicBtn {
         position: fixed;
         bottom: 20px;
@@ -19,12 +20,11 @@
         transform: scale(1.1);
         background: linear-gradient(135deg, #ff91a8, #ffc1d4);
     }
-    /* Размер иконки */
-    #musicBtn svg {
+    #musicBtn img {
         width: 28px;
         height: 28px;
-        fill: white;
     }
+
 /* Обертка для центрирования карточки */
 .card-wrapper {
     display: flex;
