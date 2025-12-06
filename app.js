@@ -19,11 +19,12 @@ document.querySelector(".prev").addEventListener("click", () => {
     showSlide(currentSlide);
 });
 
-// Автоматическая смена слайдов каждые 5 секунд
+// Автоперелистывание каждые 5 секунд
 setInterval(() => {
     currentSlide = (currentSlide + 1) % totalSlides;
     showSlide(currentSlide);
 }, 5000);
+
 
 
 const targetDate = new Date("May 5, 2026 00:00:00").getTime();
