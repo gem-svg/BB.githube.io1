@@ -1,29 +1,32 @@
-let currentSlide = 0;
+const track = document.querySelector(".track");
 const slides = document.querySelectorAll(".slide");
-const totalSlides = slides.length;
 
-const showSlide = (index) => {
-    slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-        if (i === index) slide.classList.add("active");
-    });
+let index = 0;
+const total = slides.length;
+
+const moveCarousel = () => {
+    index = (index + 1) % total;
+    track.style.transform = `translateX(-${index * 100}%)`;
 };
 
 document.querySelector(".next").addEventListener("click", () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
+    moveCarousel();
+    restartAuto();
 });
 
 document.querySelector(".prev").addEventListener("click", () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(currentSlide);
+    index = (index - 1 + total) % total;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    restartAuto();
 });
 
-// Автоперелистывание каждые 5 секунд
-setInterval(() => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-}, 5000);
+let auto = setInterval(moveCarousel, 3000);
+
+function restartAuto() {
+    clearInterval(auto);
+    auto = setInterval(moveCarousel, 3000);
+}
+
 
 
 
