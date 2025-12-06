@@ -1,4 +1,75 @@
-        {
+/* Карточка */
+.card {
+    background: #ffffff;
+    padding: 30px 40px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(255, 120, 150, 0.25);
+    text-align: center;
+    border: 2px solid #ffe1e7;
+}
+
+/* Тақырып */
+.card h2 {
+    font-size: 26px;
+    color: #b30047;
+    margin-bottom: 30px;
+}
+
+/* Батырмалар контейнері */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Негізгі стиль */
+button {
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: 0.25s;
+}
+
+/* Иә — келем */
+#yesBtn {
+    background: #ff3864;
+    color: white;
+}
+
+#yesBtn:hover {
+    background: #ff174f;
+}
+
+/* Келе алмаймын */
+#noBtn {
+    background: #ffe3ea;
+    color: #b30047;
+    border: 2px solid #ffb9c9;
+}
+
+#noBtn:hover {
+    background: #ffd4df;
+}
+
+/* Телефонға адаптив */
+@media (max-width: 480px) {
+    .card {
+        padding: 25px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+
+{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
