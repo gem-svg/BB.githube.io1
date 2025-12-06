@@ -1,3 +1,29 @@
+/* Круглая кнопка музыки в углу */
+#musicBtn {
+    position: fixed;       /* Всегда на экране */
+    bottom: 20px;          /* отступ снизу */
+    right: 20px;           /* отступ справа */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #ff7a96, #ffb3c6);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 15px rgba(255, 120, 150, 0.4);
+    transition: transform 0.2s, background 0.3s;
+    z-index: 1000; /* чтобы всегда был поверх */
+}
+
+#musicBtn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #ff91a8, #ffc1d4);
+}
+
 /* Обертка для центрирования карточки */
 .card-wrapper {
     display: flex;
