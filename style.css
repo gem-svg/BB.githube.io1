@@ -121,7 +121,7 @@ button {
        /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('public/assets/hero-wedding-romantic.jpg') center/cover no-repeat;
+            background: url('public/assets/1.jpg') center/cover no-repeat;
             position: relative;
             display: flex;
             align-items: center;
