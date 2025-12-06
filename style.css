@@ -1,6 +1,53 @@
+.photo-slider {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(255,255,255,0.9);
+}
+
+
 .countdown {
     text-align: center;
-    padding: 60px 20px;
+    padding: 0px 0px;
     background: #fff7f9;
     border-radius: 24px;
     margin: 50px auto;
@@ -233,7 +280,7 @@ button {
 
         /* Section */
         section {
-            padding: 80px 20px;
+            padding: 65px 20px;
         }
 
         .section-title {
