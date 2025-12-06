@@ -7,20 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Кнопка с SVG иконкой -->
+<!-- Кнопка с SVG иконками через <img> -->
 <button id="musicBtn">
-    <!-- По умолчанию ▶ -->
-    <svg id="playIcon" viewBox="0 0 24 24">
-        <polygon points="5,3 19,12 5,21"></polygon>
-    </svg>
-    <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none;">
-        <rect x="5" y="3" width="5" height="18"></rect>
-        <rect x="14" y="3" width="5" height="18"></rect>
-    </svg>
+    <img id="playIcon" src="public/assets/7.png" alt="Play">
+    <img id="pauseIcon" src="public/assets/8.png" alt="Pause" style="display:none;">
 </button>
 
 <audio id="bgMusic" loop>
-    <source src="public/assets/122.mp3" type="audio/mpeg">
+    <source src="public/assets/music.mp3" type="audio/mpeg">
 </audio>
 
     
@@ -144,6 +138,7 @@
 </body>
 
 </html>
+
 
 
 
