@@ -1,3 +1,16 @@
+const musicBtn = document.getElementById('musicBtn');
+const bgMusic = document.getElementById('bgMusic');
+
+musicBtn.addEventListener('click', () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.textContent = "⏸"; // показываем паузу
+    } else {
+        bgMusic.pause();
+        musicBtn.textContent = "▶"; // показываем воспроизведение
+    }
+});
+
 const phone = "77770617513"; // ← өз нөміріңізді қойыңыз (плюссыз)
 
 document.getElementById("yesBtn").onclick = () => {
