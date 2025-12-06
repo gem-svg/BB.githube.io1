@@ -108,6 +108,7 @@ button {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
@@ -115,6 +116,8 @@ button {
             line-height: 1.6;
             color: #333;
             background: linear-gradient(to bottom, #fff1f2, #ffffff, #fff1f2);
+            opacity: 0;
+            animation: fadeIn 0.8s forwards ease;
         }
 
         /* Hero Section */
