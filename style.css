@@ -1,69 +1,72 @@
-.photo-slider {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(180deg, #fff8f7, #f7f2ef);
-    border-radius: 20px;
-    max-width: 950px;
-    margin: 40px auto;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+body {
+    background: #fff7f9;
+    font-family: "Georgia", serif;
 }
 
-.photo-slider h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 34px;
-    color: #b89475;
-    margin-bottom: 25px;
-}
-
-.carousel-wrapper {
+/* Контейнер */
+.wedding-carousel {
     position: relative;
-    overflow: hidden;
-    border-radius: 16px;
+    width: 350px;
+    height: 260px;
+    margin: 100px auto;
+    perspective: 1200px;
 }
 
+/* 3D-карусель */
 .carousel {
     width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.item {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    left: 25px;
+    top: 20px;
+    border-radius: 20px;
     overflow: hidden;
-    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    background: #fff;
 }
 
-.track {
-    display: flex;
-    transition: transform 0.8s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+.item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-/* свадебные кнопки */
-.prev, .next {
+/* Расположение по окружности */
+.item:nth-child(1) { transform: rotateY(0deg) translateZ(350px); }
+.item:nth-child(2) { transform: rotateY(72deg) translateZ(350px); }
+.item:nth-child(3) { transform: rotateY(144deg) translateZ(350px); }
+.item:nth-child(4) { transform: rotateY(216deg) translateZ(350px); }
+.item:nth-child(5) { transform: rotateY(288deg) translateZ(350px); }
+
+/* Кнопки */
+.btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.8);
-    border: 1px solid #e4d2c4;
-    color: #b89475;
-    font-size: 34px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 30px;
     padding: 10px 15px;
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: 0.3s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 10;
 }
 
-.prev:hover, .next:hover {
-    background: #ffffff;
-    color: #d4a87b;
-    transform: translateY(-50%) scale(1.12);
+.btn:hover {
+    background: white;
 }
 
-.prev { left: 15px; }
-.next { right: 15px; }
+.prev { left: -60px; }
+.next { right: -60px; }
 
 .countdown {
     text-align: center;
