@@ -79,42 +79,14 @@
                     <h3 style="font-size: 1.8rem; font-family: Georgia, serif; color: #881337; margin-bottom: 10px;">Тіркелу формасы</h3>
                     <p style="color: #6b7280; margin-bottom: 30px;">Барлық өрістерді толтыру міндетті</p>
 
-                    <form id="guestForm">
-                        <div class="form-group">
-                            <label for="fullName">Толық аты-жөні *</label>
-                            <input type="text" id="fullName" name="fullName" placeholder="Мухаммед Гайнеденов" required>
-                        </div>
+                    <div class="card">
+        <h2>Сіз келесіз бе?</h2>
 
-                        <div class="form-group">
-                            <label>Сіз кімсіз? *</label>
-                            <div class="radio-group">
-                                <div class="radio-option">
-                                    <input type="radio" id="friends" name="guestType" value="friends" checked>
-                                    <label for="friends" style="font-weight: normal; margin: 0;">Достар</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="relatives" name="guestType" value="relatives">
-                                    <label for="relatives" style="font-weight: normal; margin: 0;">Туыстар</label>
-                                </div>
-                                <div class="radio-option">
-                                     <input type="radio" id="coworkers" name="guestType" value="coworkers">
-                                     <label for="coworkers" style="font-weight: normal; margin: 0;">Жұмыстастар</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="numberOfGuests">👥 Қонақтар саны *</label>
-                            <input type="number" id="numberOfGuests" name="numberOfGuests" min="1" max="10" value="1" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">💬 Тілектер немесе пікірлер (міндетті емес)</label>
-                            <textarea id="message" name="message" placeholder="Тілектеріңізді немесе ерекше сұрауларыңызды жазыңыз..."></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Қатысуды растау</button>
-                    </form>
+        <div class="buttons">
+            <button id="yesBtn">Иә, келем</button>
+            <button id="noBtn">Келе алмаймын</button>
+        </div>
+    </div>
                 </div>
             </div>
         </div>
@@ -168,6 +140,7 @@
 </body>
 
 </html>
+
 
 
 
