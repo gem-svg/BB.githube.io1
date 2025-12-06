@@ -1,26 +1,4 @@
-let angle = 0;
-const carousel = document.getElementById("carousel");
 
-const rotateCarousel = () => {
-    carousel.style.transform = `rotateY(${angle}deg)`;
-};
-
-// Кнопки управления
-document.getElementById("nextBtn").onclick = () => {
-    angle -= 72;
-    rotateCarousel();
-};
-
-document.getElementById("prevBtn").onclick = () => {
-    angle += 72;
-    rotateCarousel();
-};
-
-// Автопрокрутка
-setInterval(() => {
-    angle -= 72;
-    rotateCarousel();
-}, 4000);
 
 
 const targetDate = new Date("May 5, 2026 00:00:00").getTime();
