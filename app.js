@@ -1,16 +1,47 @@
-window.addEventListener('click', startMusicOnce);
-window.addEventListener('scroll', startMusicOnce);
+>
+const musicBtn = document.getElementById('musicBtn');
+const bgMusic = document.getElementById('bgMusic');
+const playIcon = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
 
-function startMusicOnce() {
+// Функция включения/выключения музыки
+function toggleMusic() {
+    if (bgMusic.paused) {
+        bgMusic.play().catch(() => {});
+        playIcon.style.display = "none";
+        pauseIcon.style.display = "block";
+    } else {
+        bgMusic.pause();
+        playIcon.style.display = "block";
+        pauseIcon.style.display = "none";
+    }
+}
+
+// Клик по кнопке
+musicBtn.addEventListener('click', toggleMusic);
+
+// Попытка авто-воспроизведения с тихим стартом
+window.addEventListener('load', () => {
+    bgMusic.volume = 0; // тихий старт
     bgMusic.play().then(() => {
         playIcon.style.display = "none";
         pauseIcon.style.display = "block";
-    }).catch(() => {});
-    
-    // После первого успешного клика/скролла убираем обработчики
-    window.removeEventListener('click', startMusicOnce);
-    window.removeEventListener('scroll', startMusicOnce);
-}
+        // через 1 сек включаем нормальную громкость
+        setTimeout(() => { bgMusic.volume = 1; }, 1000);
+    }).catch(() => {
+        // Если авто-запуск заблокирован, включим после первого действия пользователя
+        const startMusicOnce = () => {
+            bgMusic.play().then(() => {
+                playIcon.style.display = "none";
+                pauseIcon.style.display = "block";
+            }).catch(() => {});
+            window.removeEventListener('click', startMusicOnce);
+            window.removeEventListener('scroll', startMusicOnce);
+        };
+        window.addEventListener('click', startMusicOnce);
+        window.addEventListener('scroll', startMusicOnce);
+    });
+});
 
 
 const phone = "77770617513"; // ← өз нөміріңізді қойыңыз (плюссыз)
