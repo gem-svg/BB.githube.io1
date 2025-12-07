@@ -1,7 +1,7 @@
 .wedding-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0px 0px;
+    padding: 40px 20px;
 }
 
 /* Header Styles */
@@ -15,7 +15,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     font-weight: 700;
-    color: #881337;
+    color: #D4A5A5;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -32,7 +32,7 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto 40px;
-    padding: 0 0px;
+    padding: 0 60px;
 }
 
 /* Carousel Container */
@@ -120,6 +120,7 @@
     justify-content: center;
     gap: 12px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .indicator {
@@ -229,7 +230,7 @@
     }
 
     .carousel-wrapper {
-        padding: 0 50px;
+        padding: 0 15px;
     }
 
     .carousel-slide {
@@ -238,22 +239,44 @@
     }
 
     .slide-image {
-        height: 350px;
+        height: 400px;
     }
 
+    /* Мобильные кнопки навигации */
     .carousel-btn {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(212, 165, 165, 0.4);
     }
 
     .carousel-btn svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .carousel-btn-prev {
+        left: -5px;
+    }
+
+    .carousel-btn-next {
+        right: -5px;
+    }
+
+    /* Индикаторы на мобильных */
+    .carousel-indicators {
+        gap: 8px;
+        margin-top: 25px;
+        padding: 0 10px;
     }
 
     .indicator {
         width: 10px;
         height: 10px;
+    }
+
+    .indicator::before {
+        font-size: 6px;
     }
 
     .footer-text {
@@ -262,16 +285,82 @@
 }
 
 @media (max-width: 480px) {
+    .wedding-container {
+        padding: 15px 5px;
+    }
+
     .wedding-title {
         font-size: 28px;
+        padding: 0 10px;
     }
 
     .wedding-subtitle {
         font-size: 16px;
+        padding: 0 10px;
     }
 
     .carousel-wrapper {
-        padding: 0 45px;
+        padding: 0 10px;
+    }
+
+    .carousel-slide {
+        padding: 5px;
+    }
+
+    .slide-image {
+        height: 350px;
+        border-radius: 12px;
+    }
+
+    .slide-content {
+        border-radius: 12px;
+    }
+
+    /* Очень маленькие кнопки для узких экранов */
+    .carousel-btn {
+        width: 32px;
+        height: 32px;
+        border-width: 1.5px;
+    }
+
+    .carousel-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .carousel-btn-prev {
+        left: -3px;
+    }
+
+    .carousel-btn-next {
+        right: -3px;
+    }
+
+    .carousel-indicators {
+        gap: 6px;
+        margin-top: 20px;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+        border-width: 1.5px;
+    }
+
+    .footer-text {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+}
+
+/* Очень узкие экраны (менее 360px) */
+@media (max-width: 360px) {
+    .wedding-title {
+        font-size: 24px;
+    }
+
+    .wedding-subtitle {
+        font-size: 14px;
     }
 
     .slide-image {
@@ -279,13 +368,17 @@
     }
 
     .carousel-btn {
-        width: 35px;
-        height: 35px;
+        width: 28px;
+        height: 28px;
     }
 
     .carousel-btn svg {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .footer-text {
+        font-size: 18px;
     }
 }
 
@@ -310,6 +403,26 @@
 * {
     scrollbar-width: thin;
     scrollbar-color: #D4A5A5 #FFF5F7;
+}
+
+/* Улучшенная поддержка touch-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .slide-content:hover {
+        transform: none;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .carousel-btn:hover {
+        background: rgba(255, 255, 255, 0.95);
+        color: #D4A5A5;
+        transform: translateY(-50%);
+    }
+    
+    .carousel-btn:active {
+        background: #D4A5A5;
+        color: #FFFFFF;
+        transform: translateY(-50%) scale(0.95);
+    }
 }
 
 
