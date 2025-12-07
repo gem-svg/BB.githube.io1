@@ -267,7 +267,7 @@
 
 @media (max-width: 480px) {
     .wedding-container {
-        padding: 40px 15px;
+        padding: 40px 0px;
     }
     
     .carousel-wrapper {
