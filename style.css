@@ -160,7 +160,7 @@ button {
        /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('www/1.jpg') center/cover no-repeat;
+            background: url('public/assets/1.jpg') center/cover no-repeat;
             position: relative;
             display: flex;
             align-items: center;
