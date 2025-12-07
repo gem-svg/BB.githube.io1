@@ -1,31 +1,31 @@
 // Данные слайдов
 const slides = [
     {
-        image: '.www/33.jpg',
+        image: './www/33.jpg',
         title: 'www'
     },
     {
-        image: '.www/44.jpg',
+        image: './www/44.jpg',
         title: 'wwww'
     },
     {
-        image: '.www/55.jpg',
+        image: './www/55.jpg',
         title: 'www'
     },
     {
-        image: '.www/66.jpg',
+        image: './www/66.jpg',
         title: 'www'
     },
     {
-        image: '.www/77.jpg',
+        image: './www/77.jpg',
         title: 'www'
     },
     {
-        image: '.www/88.jpg',
+        image: './www/88.jpg',
         title: 'www'
     },
     {
-        image: '.www/99.jpg',
+        image: './www/99.jpg',
         title: 'www'
     },
 ];
