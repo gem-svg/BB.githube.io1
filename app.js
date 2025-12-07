@@ -2,31 +2,31 @@
 const slides = [
     {
         image: 'www/33.jpg',
-        title: 'Наша Любовь'
+        title: 'www'
     },
     {
         image: 'www/44.jpg',
-        title: 'Обручальные Кольца'
+        title: 'wwww'
     },
     {
         image: 'www/55.jpg',
-        title: 'Свадебный Букет'
+        title: 'www'
     },
     {
         image: 'www/66.jpg',
-        title: 'Церемония'
+        title: 'www'
     },
     {
         image: 'www/77.jpg',
-        title: 'Праздничный Стол'
+        title: 'www'
     },
     {
         image: 'www/88.jpg',
-        title: 'Первый Танец'
+        title: 'www'
     },
     {
         image: 'www/99.jpg',
-        title: 'Свадебный Торт'
+        title: 'www'
     },
 ];
 
