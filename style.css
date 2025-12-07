@@ -1,3 +1,11 @@
+.timebb{
+    text-align: center;
+    font-size: 3rem;
+    font-family: Georgia, serif;
+    color: #881337;
+    margin-bottom: 15px;
+}
+
 .wedding-container {
     max-width: 1400px;
     margin: 0 auto;
