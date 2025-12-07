@@ -1,37 +1,33 @@
 // Данные слайдов
 const slides = [
     {
-        image: './assets/wedding-couple-sunset.jpg',
+        image: 'www/33.jpg',
         title: 'Наша Любовь'
     },
     {
-        image: './assets/wedding-rings-flowers.jpg',
+        image: 'www/44.jpg',
         title: 'Обручальные Кольца'
     },
     {
-        image: './assets/wedding-bouquet-roses.jpg',
+        image: 'www/55.jpg',
         title: 'Свадебный Букет'
     },
     {
-        image: './assets/wedding-ceremony-arch.jpg',
+        image: 'www/66.jpg',
         title: 'Церемония'
     },
     {
-        image: './assets/wedding-table-decor.jpg',
+        image: 'www/77.jpg',
         title: 'Праздничный Стол'
     },
     {
-        image: './assets/wedding-dance-romantic.jpg',
+        image: 'www/88.jpg',
         title: 'Первый Танец'
     },
     {
-        image: './assets/wedding-cake-elegant.jpg',
+        image: 'www/99.jpg',
         title: 'Свадебный Торт'
     },
-    {
-        image: './assets/wedding-venue-garden.jpg',
-        title: 'Место Торжества'
-    }
 ];
 
 // Состояние карусели
