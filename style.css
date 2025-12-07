@@ -1,7 +1,7 @@
 .wedding-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 0px 20px;
     position: relative;
 }
 
@@ -15,7 +15,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     font-weight: 700;
-    color: #5A4A4A;
+    color: #881337;
     margin-bottom: 16px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
 }
