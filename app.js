@@ -1,4 +1,228 @@
-
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const prevBtn = document.querySelector('.carousel-btn-prev');
+    const nextBtn = document.querySelector('.carousel-btn-next');
+    const indicators = Array.from(document.querySelectorAll('.indicator'));
+    
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let autoplayInterval;
+    const totalSlides = slides.length;
+    let slidesPerView = getSlidesPerView();
+    
+    // Определяем количество видимых слайдов в зависимости от ширины экрана
+    function getSlidesPerView() {
+        const width = window.innerWidth;
+        if (width <= 768) {
+            return 1; // Мобильные устройства
+        } else if (width <= 1024) {
+            return 2; // Планшеты
+        } else {
+            return 3; // Десктоп
+        }
+    }
+    
+    // Клонируем слайды для бесконечной прокрутки
+    function cloneSlides() {
+        slidesPerView = getSlidesPerView();
+        
+        // Удаляем старые клоны если есть
+        const existingClones = track.querySelectorAll('.carousel-slide.clone');
+        existingClones.forEach(clone => clone.remove());
+        
+        // Клонируем все слайды в начало
+        for (let i = totalSlides - 1; i >= 0; i--) {
+            const clone = slides[i].cloneNode(true);
+            clone.classList.add('clone', 'clone-before');
+            track.insertBefore(clone, track.firstChild);
+        }
+        
+        // Клонируем все слайды в конец
+        for (let i = 0; i < totalSlides; i++) {
+            const clone = slides[i].cloneNode(true);
+            clone.classList.add('clone', 'clone-after');
+            track.appendChild(clone);
+        }
+    }
+    
+    // Обновляем позицию карусели
+    function updateCarouselPosition(animate = true) {
+        const slideWidth = 100 / slidesPerView;
+        // Смещение учитывает клонированные слайды в начале (totalSlides штук)
+        const offset = -((currentIndex + totalSlides) * slideWidth);
+        
+        if (animate) {
+            track.style.transition = 'transform 0.6s ease-in-out';
+        } else {
+            track.style.transition = 'none';
+        }
+        
+        track.style.transform = `translateX(${offset}%)`;
+    }
+    
+    // Обновляем активный индикатор
+    function updateIndicators() {
+        const realIndex = ((currentIndex % totalSlides) + totalSlides) % totalSlides;
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === realIndex);
+        });
+    }
+    
+    // Переход к следующему слайду
+    function nextSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentIndex++;
+        updateCarouselPosition();
+        updateIndicators();
+        
+        // Проверяем, достигли ли мы конца
+        setTimeout(() => {
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+                updateCarouselPosition(false);
+                updateIndicators();
+            }
+            isTransitioning = false;
+        }, 600);
+    }
+    
+    // Переход к предыдущему слайду
+    function prevSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentIndex--;
+        updateCarouselPosition();
+        updateIndicators();
+        
+        // Проверяем, достигли ли мы начала
+        setTimeout(() => {
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+                updateCarouselPosition(false);
+                updateIndicators();
+            }
+            isTransitioning = false;
+        }, 600);
+    }
+    
+    // Переход к конкретному слайду
+    function goToSlide(index) {
+        if (isTransitioning || index === currentIndex) return;
+        isTransitioning = true;
+        
+        currentIndex = index;
+        updateCarouselPosition();
+        updateIndicators();
+        
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600);
+        
+        resetAutoplay();
+    }
+    
+    // Автопрокрутка
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            nextSlide();
+        }, 4000); // Меняем слайд каждые 4 секунды
+    }
+    
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+    
+    function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+    
+    // Обработчики событий
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+    });
+    
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+    });
+    
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+    
+    // Пауза автопрокрутки при наведении
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+    
+    // Поддержка свайпов на мобильных устройствах
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+    });
+    
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoplay();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+    
+    // Обработка изменения размера окна
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const newSlidesPerView = getSlidesPerView();
+            if (newSlidesPerView !== slidesPerView) {
+                cloneSlides();
+                updateCarouselPosition(false);
+            }
+        }, 250);
+    });
+    
+    // Поддержка клавиатуры
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            resetAutoplay();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            resetAutoplay();
+        }
+    });
+    
+    // Инициализация
+    cloneSlides();
+    updateCarouselPosition(false);
+    updateIndicators();
+    startAutoplay();
+    
+    console.log('Үйлену каруселі іске қосылды!');
+});
 
 
 const targetDate = new Date("May 5, 2026 00:00:00").getTime();
