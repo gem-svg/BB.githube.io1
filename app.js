@@ -2,31 +2,31 @@
 const slides = [
     {
         image: './www/33.jpg',
-        title: 'www'
+        title: 'Махаббатпен басталған өмір'
     },
     {
         image: './www/44.jpg',
-        title: 'wwww'
+        title: 'Екі жүрек – бір тағдыр'
     },
     {
         image: './www/55.jpg',
-        title: 'www'
+        title: 'Бақытқа бірге қадам'
     },
     {
         image: './www/66.jpg',
-        title: 'www'
+        title: 'Мәңгілік махаббат'
     },
     {
         image: './www/77.jpg',
-        title: 'www'
+        title: 'Қуаныш пен махаббатқа толы күн»'
     },
     {
         image: './www/88.jpg',
-        title: 'www'
+        title: 'Екі жүрек – бір тағдыр'
     },
     {
         image: './www/99.jpg',
-        title: 'www'
+        title: 'Мәңгі бірге, мәңгі махаббат'
     },
 ];
 
