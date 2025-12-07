@@ -1,7 +1,9 @@
+
+
 .wedding-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0px 0px;
+    padding: 0px 20px;
 }
 
 /* Header Styles */
@@ -61,6 +63,10 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slide-content:hover {
@@ -70,8 +76,8 @@
 
 .slide-image {
     width: 100%;
-    height: 450px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: block;
 }
 
@@ -206,8 +212,8 @@
         font-size: 20px;
     }
 
-    .slide-image {
-        height: 400px;
+    .slide-content {
+        height: 500px;
     }
 }
 
@@ -238,11 +244,11 @@
         padding: 10px;
     }
 
-    .slide-image {
-        height: 400px;
+    .slide-content {
+        height: 500px;
     }
 
-    /* Мобильные кнопки навигации */
+    /* Мобильні кнопки навігації */
     .carousel-btn {
         width: 36px;
         height: 36px;
@@ -263,7 +269,7 @@
         right: -5px;
     }
 
-    /* Индикаторы на мобильных */
+    /* Індикатори на мобільних */
     .carousel-indicators {
         gap: 8px;
         margin-top: 25px;
@@ -307,16 +313,12 @@
         padding: 5px;
     }
 
-    .slide-image {
-        height: 350px;
-        border-radius: 12px;
-    }
-
     .slide-content {
+        height: 450px;
         border-radius: 12px;
     }
 
-    /* Очень маленькие кнопки для узких экранов */
+    /* Дуже маленькі кнопки для вузьких екранів */
     .carousel-btn {
         width: 32px;
         height: 32px;
@@ -353,7 +355,7 @@
     }
 }
 
-/* Очень узкие экраны (менее 360px) */
+/* Дуже вузькі екрани (менше 360px) */
 @media (max-width: 360px) {
     .wedding-title {
         font-size: 24px;
@@ -363,8 +365,8 @@
         font-size: 14px;
     }
 
-    .slide-image {
-        height: 300px;
+    .slide-content {
+        height: 400px;
     }
 
     .carousel-btn {
@@ -405,7 +407,7 @@
     scrollbar-color: #D4A5A5 #FFF5F7;
 }
 
-/* Улучшенная поддержка touch-устройств */
+/* Покращена підтримка touch-пристроїв */
 @media (hover: none) and (pointer: coarse) {
     .slide-content:hover {
         transform: none;
@@ -424,6 +426,7 @@
         transform: translateY(-50%) scale(0.95);
     }
 }
+
 
 
 
