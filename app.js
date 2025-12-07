@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
     startAutoplay();
     
     console.log('Үйлену каруселі іске қосылды!');
-});
+}); 
 
 
 const targetDate = new Date("May 5, 2026 00:00:00").getTime();
